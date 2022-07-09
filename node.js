@@ -78,7 +78,7 @@ app.post('/users', (request, response) => {
     const newUser = request.body;
 
     users.push(newUser);
-    return response.status(StatusCodes.CREATED).send(newUser);
+    return response.status(200).send(newUser);
 });
 //API REST EXEMPLO PUT
 app.put('/users/:userId', (request, response) => {
@@ -99,5 +99,5 @@ app.delete('/users/:userId', (request, response) => {
     const userId = request.params.userId;
     users = users.filter((user) => user.id !== Number(userId));
     
-    return response.status(StatusCodes.NO_CONTENT).send();
+    return response.status(204).send();
 });
