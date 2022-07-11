@@ -46,7 +46,7 @@ async function mediaReduce() {
 
 // CRIANDO UMA API REST
 const  app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 let users = [
     { id: 1, name: 'João Pedro', age: 18},
     { id: 2, name: 'João Victor', agr: 20},
@@ -94,7 +94,7 @@ app.put('/users/:userId', (request, response) => {
     }));
     return response.send(updatedUser);
 });
-// API REST EXEPLO DELETE
+// API REST EXEMPLO DELETE
 app.delete('/users/:userId', (request, response) => {
     const userId = request.params.userId;
     users = users.filter((user) => user.id !== Number(userId));
